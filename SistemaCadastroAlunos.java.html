@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>SistemaCadastroAlunos.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+SistemaCadastroAlunos.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.*;</span>
+
+<span class="s0">class </span><span class="s1">Aluno </span><span class="s0">implements </span><span class="s1">Comparable</span><span class="s2">&lt;</span><span class="s1">Aluno</span><span class="s2">&gt; {</span>
+    <span class="s0">private int </span><span class="s1">matricula</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String nome</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">nota</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s0">int </span><span class="s1">matricula</span><span class="s2">, </span><span class="s1">String nome</span><span class="s2">, </span><span class="s0">double </span><span class="s1">nota</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">matricula </span><span class="s2">= </span><span class="s1">matricula</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nome </span><span class="s2">= </span><span class="s1">nome</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nota </span><span class="s2">= </span><span class="s1">nota</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public int </span><span class="s1">getMatricula</span><span class="s2">() { </span><span class="s0">return </span><span class="s1">matricula</span><span class="s2">; }</span>
+    <span class="s0">public </span><span class="s1">String getNome</span><span class="s2">() { </span><span class="s0">return </span><span class="s1">nome</span><span class="s2">; }</span>
+    <span class="s0">public double </span><span class="s1">getNota</span><span class="s2">() { </span><span class="s0">return </span><span class="s1">nota</span><span class="s2">; }</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">String toString</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s3">&quot;Aluno{&quot; </span><span class="s2">+ </span><span class="s3">&quot;matricula=&quot; </span><span class="s2">+ </span><span class="s1">matricula </span><span class="s2">+ </span><span class="s3">&quot;, nome='&quot; </span><span class="s2">+ </span><span class="s1">nome </span><span class="s2">+ </span><span class="s3">'</span><span class="s0">\'</span><span class="s3">' </span><span class="s2">+ </span><span class="s3">&quot;, nota=&quot; </span><span class="s2">+ </span><span class="s1">nota </span><span class="s2">+ </span><span class="s3">'}'</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public boolean </span><span class="s1">equals</span><span class="s2">(</span><span class="s1">Object o</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s0">this </span><span class="s2">== </span><span class="s1">o</span><span class="s2">) </span><span class="s0">return true</span><span class="s2">;</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">o </span><span class="s2">== </span><span class="s0">null </span><span class="s2">|| </span><span class="s1">getClass</span><span class="s2">() != </span><span class="s1">o</span><span class="s2">.</span><span class="s1">getClass</span><span class="s2">()) </span><span class="s0">return false</span><span class="s2">;</span>
+        <span class="s1">Aluno aluno </span><span class="s2">= (</span><span class="s1">Aluno</span><span class="s2">) </span><span class="s1">o</span><span class="s2">;</span>
+        <span class="s0">return </span><span class="s1">matricula </span><span class="s2">== </span><span class="s1">aluno</span><span class="s2">.</span><span class="s1">matricula</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public int </span><span class="s1">hashCode</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">Objects</span><span class="s2">.</span><span class="s1">hash</span><span class="s2">(</span><span class="s1">matricula</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public int </span><span class="s1">compareTo</span><span class="s2">(</span><span class="s1">Aluno outro</span><span class="s2">) {</span>
+        <span class="s0">return this</span><span class="s2">.</span><span class="s1">nome</span><span class="s2">.</span><span class="s1">compareTo</span><span class="s2">(</span><span class="s1">outro</span><span class="s2">.</span><span class="s1">nome</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">public class </span><span class="s1">SistemaCadastroAlunos </span><span class="s2">{</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;=== SISTEMA DE CADASTRO DE ALUNOS ===&quot;</span><span class="s2">);</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">--- 1. ARRAYLIST (Histórico de Acessos) ---&quot;</span><span class="s2">);</span>
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">historicoAcessos </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">historicoAcessos</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;João (Login)&quot;</span><span class="s2">);</span>
+        <span class="s1">historicoAcessos</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;Maria (Login)&quot;</span><span class="s2">);</span>
+        <span class="s1">historicoAcessos</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;João (Logout)&quot;</span><span class="s2">); </span><span class="s4">// Demonstra permissão de duplicidade lógica</span>
+
+        <span class="s0">if</span><span class="s2">(</span><span class="s1">historicoAcessos</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s3">&quot;João (Logout)&quot;</span><span class="s2">)) {</span>
+            <span class="s1">historicoAcessos</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s3">&quot;João (Logout)&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">String acesso </span><span class="s2">: </span><span class="s1">historicoAcessos</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">acesso</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">--- 2. LINKEDLIST (Fila de Espera) ---&quot;</span><span class="s2">);</span>
+        <span class="s1">LinkedList</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">filaEspera </span><span class="s2">= </span><span class="s0">new </span><span class="s1">LinkedList</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">filaEspera</span><span class="s2">.</span><span class="s1">addLast</span><span class="s2">(</span><span class="s3">&quot;Carlos&quot;</span><span class="s2">);</span>
+        <span class="s1">filaEspera</span><span class="s2">.</span><span class="s1">addLast</span><span class="s2">(</span><span class="s3">&quot;Ana&quot;</span><span class="s2">);</span>
+        <span class="s1">filaEspera</span><span class="s2">.</span><span class="s1">addLast</span><span class="s2">(</span><span class="s3">&quot;Pedro&quot;</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;A Ana está na fila? &quot; </span><span class="s2">+ </span><span class="s1">filaEspera</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s3">&quot;Ana&quot;</span><span class="s2">));</span>
+
+        <span class="s1">String atendido </span><span class="s2">= </span><span class="s1">filaEspera</span><span class="s2">.</span><span class="s1">pollFirst</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Atendido: &quot; </span><span class="s2">+ </span><span class="s1">atendido</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Restantes na fila:&quot;</span><span class="s2">);</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">String pessoa </span><span class="s2">: </span><span class="s1">filaEspera</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;- &quot; </span><span class="s2">+ </span><span class="s1">pessoa</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">--- 3. HASHSET (Controle de CPFs Únicos) ---&quot;</span><span class="s2">);</span>
+        <span class="s1">Set</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">cpfsCadastrados </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HashSet</span><span class="s2">&lt;&gt;();</span>
+
+
+        <span class="s1">cpfsCadastrados</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;111.111.111-11&quot;</span><span class="s2">);</span>
+        <span class="s1">cpfsCadastrados</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;222.222.222-22&quot;</span><span class="s2">);</span>
+
+
+        <span class="s0">boolean </span><span class="s1">adicionouDuplicado </span><span class="s2">= </span><span class="s1">cpfsCadastrados</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s3">&quot;111.111.111-11&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Conseguiu adicionar CPF duplicado? &quot; </span><span class="s2">+ </span><span class="s1">adicionouDuplicado</span><span class="s2">);</span>
+
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">cpfsCadastrados</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s3">&quot;222.222.222-22&quot;</span><span class="s2">)) {</span>
+            <span class="s1">cpfsCadastrados</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s3">&quot;222.222.222-22&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">String cpf </span><span class="s2">: </span><span class="s1">cpfsCadastrados</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;CPF válido: &quot; </span><span class="s2">+ </span><span class="s1">cpf</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">--- 4. TREESET (Ranking Alfabético) ---&quot;</span><span class="s2">);</span>
+        <span class="s1">Set</span><span class="s2">&lt;</span><span class="s1">Aluno</span><span class="s2">&gt; </span><span class="s1">alunosOrdenados </span><span class="s2">= </span><span class="s0">new </span><span class="s1">TreeSet</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">Aluno a1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s5">101</span><span class="s2">, </span><span class="s3">&quot;Zeca&quot;</span><span class="s2">, </span><span class="s5">8.5</span><span class="s2">);</span>
+        <span class="s1">Aluno a2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s5">102</span><span class="s2">, </span><span class="s3">&quot;Amanda&quot;</span><span class="s2">, </span><span class="s5">9.0</span><span class="s2">);</span>
+        <span class="s1">Aluno a3 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s5">103</span><span class="s2">, </span><span class="s3">&quot;Bruno&quot;</span><span class="s2">, </span><span class="s5">7.5</span><span class="s2">);</span>
+
+        <span class="s1">alunosOrdenados</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">a1</span><span class="s2">);</span>
+        <span class="s1">alunosOrdenados</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">a2</span><span class="s2">);</span>
+        <span class="s1">alunosOrdenados</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">a3</span><span class="s2">);</span>
+
+        <span class="s1">alunosOrdenados</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s1">a3</span><span class="s2">);</span>
+
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Aluno aluno </span><span class="s2">: </span><span class="s1">alunosOrdenados</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">aluno</span><span class="s2">.</span><span class="s1">getNome</span><span class="s2">() + </span><span class="s3">&quot; - &quot; </span><span class="s2">+ </span><span class="s1">aluno</span><span class="s2">.</span><span class="s1">getNota</span><span class="s2">());</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">--- 5. HASHMAP (Busca de Aluno por Matrícula) ---&quot;</span><span class="s2">);</span>
+        <span class="s1">Map</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">, </span><span class="s1">Aluno</span><span class="s2">&gt; </span><span class="s1">mapaAlunos </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HashMap</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">mapaAlunos</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s1">a1</span><span class="s2">.</span><span class="s1">getMatricula</span><span class="s2">(), </span><span class="s1">a1</span><span class="s2">);</span>
+        <span class="s1">mapaAlunos</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s1">a2</span><span class="s2">.</span><span class="s1">getMatricula</span><span class="s2">(), </span><span class="s1">a2</span><span class="s2">);</span>
+
+        <span class="s1">Aluno alunoEncontrado </span><span class="s2">= </span><span class="s1">mapaAlunos</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s5">101</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Aluno matricula 101 encontrado: &quot; </span><span class="s2">+ </span><span class="s1">alunoEncontrado</span><span class="s2">.</span><span class="s1">getNome</span><span class="s2">());</span>
+
+        <span class="s1">mapaAlunos</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s5">102</span><span class="s2">);</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Map</span><span class="s2">.</span><span class="s1">Entry</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">, </span><span class="s1">Aluno</span><span class="s2">&gt; </span><span class="s1">entry </span><span class="s2">: </span><span class="s1">mapaAlunos</span><span class="s2">.</span><span class="s1">entrySet</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Chave: &quot; </span><span class="s2">+ </span><span class="s1">entry</span><span class="s2">.</span><span class="s1">getKey</span><span class="s2">() + </span><span class="s3">&quot; | Valor: &quot; </span><span class="s2">+ </span><span class="s1">entry</span><span class="s2">.</span><span class="s1">getValue</span><span class="s2">().</span><span class="s1">getNome</span><span class="s2">());</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">--- 6. TREEMAP (Matrículas Ordenadas) ---&quot;</span><span class="s2">);</span>
+        <span class="s1">Map</span><span class="s2">&lt;</span><span class="s1">Integer</span><span class="s2">, </span><span class="s1">Aluno</span><span class="s2">&gt; </span><span class="s1">mapaOrdenado </span><span class="s2">= </span><span class="s0">new </span><span class="s1">TreeMap</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s5">999</span><span class="s2">, </span><span class="s0">new </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s5">999</span><span class="s2">, </span><span class="s3">&quot;Thiago&quot;</span><span class="s2">, </span><span class="s5">6.0</span><span class="s2">));</span>
+        <span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s5">100</span><span class="s2">, </span><span class="s0">new </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s5">100</span><span class="s2">, </span><span class="s3">&quot;Beatriz&quot;</span><span class="s2">, </span><span class="s5">9.5</span><span class="s2">));</span>
+        <span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s5">500</span><span class="s2">, </span><span class="s0">new </span><span class="s1">Aluno</span><span class="s2">(</span><span class="s5">500</span><span class="s2">, </span><span class="s3">&quot;Daniel&quot;</span><span class="s2">, </span><span class="s5">8.0</span><span class="s2">));</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Existe a matrícula 500? &quot; </span><span class="s2">+ </span><span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">containsKey</span><span class="s2">(</span><span class="s5">500</span><span class="s2">));</span>
+        <span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s5">999</span><span class="s2">);</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Integer matricula </span><span class="s2">: </span><span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">keySet</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Matrícula: &quot; </span><span class="s2">+ </span><span class="s1">matricula </span><span class="s2">+ </span><span class="s3">&quot; -&gt; &quot; </span><span class="s2">+ </span><span class="s1">mapaOrdenado</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">matricula</span><span class="s2">).</span><span class="s1">getNome</span><span class="s2">());</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
